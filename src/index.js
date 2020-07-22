@@ -10,11 +10,12 @@ import "es6-promise";
 import "fetch-polyfill";
 
 
-import clubSelectButton from './modules/clubSelectButton';
-import toggleModalVisitForm from './modules/toggleModalVisitForm';
+import clubSelect from './modules/clubSelect';
+import visitCallbackForms from './modules/visitCallbackForms';
 
-//club-select-button
-clubSelectButton();
+//club-select
+clubSelect();
 
-//toggle-modal-visit-form
-toggleModalVisitForm();
+//visit-callback-forms
+visitCallbackForms();
+

@@ -1,4 +1,4 @@
-const clubSelectButton = () => {
+const clubSelect = () => {
     document.body.addEventListener('click', (e) => {
         let target = e.target;
         const clubsListItems = document.querySelector('.clubs-list-items');
@@ -10,4 +10,4 @@ const clubSelectButton = () => {
     });
 };
 
-export default clubSelectButton;
+export default clubSelect;
