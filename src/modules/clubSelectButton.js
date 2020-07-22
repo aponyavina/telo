@@ -1,5 +1,5 @@
 const clubSelectButton = () => {
-    document.addEventListener('click', (e) => {
+    document.body.addEventListener('click', (e) => {
         let target = e.target;
         const clubsListItems = document.querySelector('.clubs-list-items');
         if (target.classList.contains('clubs-list-title')) {

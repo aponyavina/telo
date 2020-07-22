@@ -11,6 +11,10 @@ import "fetch-polyfill";
 
 
 import clubSelectButton from './modules/clubSelectButton';
+import toggleModalVisitForm from './modules/toggleModalVisitForm';
 
 //club-select-button
 clubSelectButton();
+
+//toggle-modal-visit-form
+toggleModalVisitForm();
