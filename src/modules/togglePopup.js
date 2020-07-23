@@ -8,20 +8,21 @@ const togglePopup = () => {
         popupClose = (item) => {
             item.addEventListener('click', (e) => {
                 let target = e.target;
-                if (target.classList.contains('close-icon') || target.classList.contains('close-btn')) {
+                if (target.classList.contains('close-icon') || target.classList.contains('close-btn') ||
+                target.classList.contains('menu-item') ) {
                     item.style.display = 'none';
-                } else {
-                    target = target.closest('.form-content');
-                    if (!target) {
-                        item.style.display = 'none';
-                    }
                 }
+                //  else {
+                //     target = target.closest('.form-content');
+                //     if (!target) {
+                //         item.style.display = 'none';
+                //     }
+                // }
             });
         };
 
     document.body.addEventListener('click', (e) => {
         let target = e.target;
-        console.log(target);
         if (target.classList.contains('open-popup')) {
             popupVisitForm.style.display = 'flex';
             popupClose(popupVisitForm);
@@ -37,6 +38,7 @@ const togglePopup = () => {
         }
         if (target.classList.contains('menu-button-img')) {
             popupMenu.style.display = 'flex';
+            popupClose(popupMenu);
         }
     });
 };
