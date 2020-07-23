@@ -1,4 +1,4 @@
-const visitCallbackForms = () => {
+const togglePopup = () => {
 
     const popupVisitForm = document.getElementById('free_visit_form'),
         popupCallbackForm = document.getElementById('callback_form'),
@@ -36,4 +36,4 @@ const visitCallbackForms = () => {
     });
 };
 
-export default visitCallbackForms;
+export default togglePopup;
