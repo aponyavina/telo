@@ -12,10 +12,14 @@ import "fetch-polyfill";
 
 import clubSelect from './modules/clubSelect';
 import visitCallbackForms from './modules/visitCallbackForms';
+import toggleMenu from './modules/toggleMenu';
 
 //club-select
 clubSelect();
 
 //visit-callback-forms
 visitCallbackForms();
+
+//toggle-menu
+toggleMenu();
 
