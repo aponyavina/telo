@@ -11,6 +11,9 @@ const togglePopup = () => {
                 if (target.classList.contains('close-icon') || target.classList.contains('close-btn') ||
                 target.classList.contains('menu-item') ) {
                     item.style.display = 'none';
+                } else if (target.classList.contains('hidden-large') ||
+                target.classList.contains('scroll')) {
+                    return;
                 }
                  else {
                     target = target.closest('.form-content');
