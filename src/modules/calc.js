@@ -13,7 +13,7 @@ const calc = () => {
     priceTotal.textContent = 1999;
 
     const foo = () => {
-        cardOrder.addEventListener('change', (e) => {
+        cardOrder.addEventListener('input', (e) => {
             if (cardTypeArr !== []) {
                 // cardTypeArr.forEach((element, i) => {
                     cardOrder.addEventListener('click', (e) => {
