@@ -1,7 +1,8 @@
 const togglePopup = () => {
-
+    'use strict';
     const popupVisitForm = document.getElementById('free_visit_form'),
         popupCallbackForm = document.getElementById('callback_form'),
+        popupMenu = document.querySelector('.popup-menu'),
         fixedGift = document.querySelector('.fixed-gift'),
         popupGift = document.getElementById('gift'),
         popupClose = (item) => {
@@ -20,6 +21,7 @@ const togglePopup = () => {
 
     document.body.addEventListener('click', (e) => {
         let target = e.target;
+        console.log(target);
         if (target.classList.contains('open-popup')) {
             popupVisitForm.style.display = 'flex';
             popupClose(popupVisitForm);
@@ -32,6 +34,9 @@ const togglePopup = () => {
             popupGift.style.display = 'flex';
             fixedGift.style.display = 'none';
             popupClose(popupGift);
+        }
+        if (target.classList.contains('menu-button-img')) {
+            popupMenu.style.display = 'flex';
         }
     });
 };
