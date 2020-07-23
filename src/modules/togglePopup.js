@@ -12,12 +12,12 @@ const togglePopup = () => {
                 target.classList.contains('menu-item') ) {
                     item.style.display = 'none';
                 }
-                //  else {
-                //     target = target.closest('.form-content');
-                //     if (!target) {
-                //         item.style.display = 'none';
-                //     }
-                // }
+                 else {
+                    target = target.closest('.form-content');
+                    if (!target) {
+                        item.style.display = 'none';
+                    }
+                }
             });
         };
 
