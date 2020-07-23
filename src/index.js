@@ -12,7 +12,7 @@ import "fetch-polyfill";
 
 import clubSelect from './modules/clubSelect';
 import togglePopup from './modules/togglePopup';
-import scroll from './modules/scroll';
+import scrolling from './modules/scrolling';
 
 //club-select
 clubSelect();
@@ -20,6 +20,6 @@ clubSelect();
 //toggle-popup
 togglePopup();
 
-//scroll
-scroll();
+//scrolling
+scrolling();
 
