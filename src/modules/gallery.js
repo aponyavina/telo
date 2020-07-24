@@ -1,7 +1,7 @@
 const gallery = () => {
     'use strict';
-    const ul = document.querySelector('.portfolio-dots'),
-        slide = document.querySelectorAll('.portfolio-item');
+    const ul = document.querySelector('.gallery-dots'),
+        slide = document.querySelectorAll('.slide-item');
 
     for (let i = 0; i < slide.length; i++) {
         let li = document.createElement('li');
@@ -13,7 +13,7 @@ const gallery = () => {
     }
 
     const dot = document.querySelectorAll('.dot'),
-        slider = document.querySelector('.portfolio-content');
+        slider = document.querySelector('.gallery-slider');
 
     let currentSlide = 0,
         interval;
@@ -27,13 +27,13 @@ const gallery = () => {
     };
 
     const autoPlaySlide = () => {
-        prevSlide(slide, currentSlide, 'portfolio-item-active');
+        prevSlide(slide, currentSlide, 'slide-item-active');
         prevSlide(dot, currentSlide, 'dot-active');
         currentSlide++;
         if (currentSlide >= slide.length) {
             currentSlide = 0;
         }
-        nextSlide(slide, currentSlide, 'portfolio-item-active');
+        nextSlide(slide, currentSlide, 'slide-item-active');
         nextSlide(dot, currentSlide, 'dot-active');
     };
     const startSlide = (time = 3000) => {
@@ -47,11 +47,11 @@ const gallery = () => {
 
         let target = event.target;
 
-        if (!target.matches('.portfolio-btn, .dot')) {
+        if (!target.matches('.gallery-btn, .dot')) {
             return;
         }
 
-        prevSlide(slide, currentSlide, 'portfolio-item-active');
+        prevSlide(slide, currentSlide, 'slide-item-active');
         prevSlide(dot, currentSlide, 'dot-active');
 
         if (target.matches('#arrow-right')) {
@@ -72,19 +72,19 @@ const gallery = () => {
         if (currentSlide < 0) {
             currentSlide = slide.length - 1;
         }
-        nextSlide(slide, currentSlide, 'portfolio-item-active');
+        nextSlide(slide, currentSlide, 'slide-item-active');
         nextSlide(dot, currentSlide, 'dot-active');
     });
 
     slider.addEventListener('mouseover', (event) => {
-        if (event.target.matches('.portfolio-btn') ||
+        if (event.target.matches('.gallery-btn') ||
             event.target.matches('.dot')) {
             stopSlide();
         }
     });
 
     slider.addEventListener('mouseout', (event) => {
-        if (event.target.matches('.portfolio-btn') ||
+        if (event.target.matches('.gallery-btn') ||
             event.target.matches('.dot')) {
             startSlide();
         }
