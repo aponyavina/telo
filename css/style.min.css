@@ -1539,8 +1539,32 @@ nav.popup-menu .close-menu-btn img {
 .services-slider {
     display: flex;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px
+    padding-left: 0;
+    padding-right: 60px;
+    position: relative;
+}
+
+#services .wrapper {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+
+#carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item {
+    flex: 0 0 20%;
+}
+
+#services-slider {
+    transition: transform 0.5s ;
+    will-change: transform ;
 }
 
 .services-slider .slide {
@@ -2750,4 +2774,8 @@ p.personal-data input[type=checkbox]:checked+label:before {
     .slider-dots {
         bottom: 30px
     }
+}
+
+.prev-carousel, .next-carousel {
+    top: 38%;
 }
