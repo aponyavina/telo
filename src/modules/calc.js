@@ -1,63 +1,51 @@
 const calc = () => {
     'use strict';
 
-    const priceTotal = document.getElementById('price-total'); // поле итоговая цена
-    const m1 = document.getElementById('m1'),
-        m2 = document.getElementById('m2'),
-        m3 = document.getElementById('m3'),
-        m4 = document.getElementById('m4'); //значения абонементов по месяцам
-    const cardOrder = document.getElementById('card_order');
-    const promoInput = document.getElementById('promo-input');
-    let cardTypeArr = [];
-
-    priceTotal.textContent = 1999;
-
-    const foo = () => {
-        cardOrder.addEventListener('input', (e) => {
-            if (cardTypeArr !== []) {
-                // cardTypeArr.forEach((element, i) => {
-                    cardOrder.addEventListener('click', (e) => {
-                        let target = e.target;
-                        if (target.getAttribute('name') === 'card-type') {
-                            priceTotal.textContent = target.getAttribute('value');
-                        }
-                    });
-                // });
-            }
-            promoInput.value = '';
-            let target = e.target;
-            if (target.closest('#card_leto_mozaika')) {
-                cardTypeArr = [];
-                m1.value = 1999;
-                m2.value = 9900;
-                m3.value = 13900;
-                m4.value = 19900;
-                cardTypeArr.push(m1, m2, m3, m4);
-                foo();
-            } else if (target.closest('#card_leto_schelkovo')) {
-                cardTypeArr = [];
-                m1.value = 2999;
-                m2.value = 14990;
-                m3.value = 21990;
-                m4.value = 24990;
-                cardTypeArr.push(m1, m2, m3, m4);
-                foo();
-            }
-            if (target.getAttribute('name') === 'card-type') {
-                priceTotal.textContent = target.getAttribute('value');
-            }
-        });
-
-        promoInput.addEventListener('input', () => {
-            if (promoInput.value === 'ТЕЛО2020') {
-                priceTotal.textContent *= 0.3;
-                priceTotal.textContent = Math.round(priceTotal.textContent);
-            }
-        });
+    const cardOrder = document.querySelector('#card_order'),
+     priceTotal = cardOrder.querySelector('#price-total');
+     
+    let activeCard = cardOrder.querySelector('input[name="card-type"]:checked'),
+    activeClub = cardOrder.querySelector('input[name="club-name"]:checked');
+    
+    const price = {
+      mozaika: {
+        m1: 1999,
+        m2: 9900,
+        m3: 13900,
+        m4: 19900
+      },
+      schelkovo: {
+        m1: 2999,
+        m2: 14990,
+        m3: 21990,
+        m4: 24990
+      }
     };
-    foo();
-
-
+    
+    const checkPromo = () => {
+      const inputPromo = cardOrder.querySelector('input[placeholder="Промокод"]').value === `ТЕЛО2020` || false;
+      return inputPromo;
+    };
+    checkPromo();
+    
+    const showPrice = () => {
+      const count = price[activeClub.value][activeCard.id];
+      priceTotal.textContent = (checkPromo()) ? Math.round(count * -0.30 + count) : count;
+    };
+    showPrice();
+    
+    cardOrder.addEventListener('input', e => {
+      const {target} = e;
+      if(target.name === 'card-type') {
+        activeCard = target;
+        showPrice();
+      } else if(target.name === 'club-name') {
+        activeClub = target;
+        showPrice();
+      } else if(target.placeholder === 'Промокод') {
+        showPrice();
+      }
+    });
 };
 
 export default calc;
