@@ -14,6 +14,7 @@ import clubSelect from './modules/clubSelect';
 import togglePopup from './modules/togglePopup';
 import scrolling from './modules/scrolling';
 import calc from './modules/calc';
+import gallery from './modules/gallery';
 
 //club-select
 clubSelect();
@@ -26,4 +27,7 @@ scrolling();
 
 //calc
 calc();
+
+//gallery
+gallery();
 
