@@ -16,6 +16,7 @@ import scrolling from './modules/scrolling';
 import calc from './modules/calc';
 import gallery from './modules/gallery';
 import carousel from './modules/carousel';
+import mainSlider from './modules/mainSlider';
 
 //club-select
 clubSelect();
@@ -34,4 +35,7 @@ gallery();
 
 //carousel
 carousel();
+
+//mainSlider
+mainSlider();
 
