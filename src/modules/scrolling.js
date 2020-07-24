@@ -4,7 +4,8 @@ const scrolling = () => {
     const menuButton = document.querySelector('.menu-button'),
         topMenu = document.querySelector('.top-menu'),
         toTop = document.getElementById('totop'),
-        clubsBlock = document.getElementById('clubs');
+        clubsBlock = document.getElementById('clubs'),
+        breadCrumbs = document.querySelector('.breadcrumbs');
 
     toTop.style.display = 'none';
 
@@ -19,12 +20,20 @@ const scrolling = () => {
                 topMenu.style.position = 'static';
             }
         }
-
-        if (clubsBlock.getBoundingClientRect().top <= 0) {
-            toTop.style.display = 'block';
-        } else {
-            toTop.style.display = 'none';
-        }
+if (clubsBlock !== null) {
+    if (clubsBlock.getBoundingClientRect().top <= 0) {
+        toTop.style.display = 'block';
+    } else {
+        toTop.style.display = 'none';
+    }
+} else if (breadCrumbs !== null) {
+    if (breadCrumbs.getBoundingClientRect().top <= 0) {
+        toTop.style.display = 'block';
+    } else {
+        toTop.style.display = 'none';
+    }
+}
+        
     });
 };
 

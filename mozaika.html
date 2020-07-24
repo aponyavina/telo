@@ -22,10 +22,10 @@
                     </div>
                     <div class="club-select">
                         <div class="clubs-list">
-                            <p>Выбрать клуб</p>
-                            <ul>
-                                <li><a href="mozaika.html">Тело мозаика</a></li>
-                                <li><a href="schelkovo.html">Тело щелково</a></li>
+                            <p class="clubs-list-title">Выбрать клуб</p>
+                            <ul class="clubs-list-items">
+                                <li class="clubs-list-item"><a href="mozaika.html">Тело мозаика</a></li>
+                                <li class="clubs-list-item"><a href="schelkovo.html">Тело щелково</a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,21 +58,21 @@
                 <li class="scroll"><a href="#footer">Контакты</a></li>
             </ul>
             <div class="menu-button hidden-large">
-                <img src="images/menu-button.png" alt="">
+                <img class="menu-button-img" src="images/menu-button.png" alt="">
             </div>
         </div>
     </nav>
     <nav class="popup-menu hidden-large">
         <div class="close-menu-btn">
-            <img src="images/delete.png" alt="">
+            <img class="close-icon" src="images/delete.png" alt="">
         </div>
         <ul>
-            <li class="scroll"><a href="#clubs">Клубы</a></li>
-            <li class="scroll"><a href="#services">Услуги</a></li>
-            <li class="scroll"><a href="#cards">Клубные карты</a></li>
-            <li class=""><a href="#table">Расписание</a></li>
-            <li class="scroll"><a href="#gallery">Галерея</a></li>
-            <li class="scroll"><a href="#footer">Контакты</a></li>
+            <li class="scroll"><a class="menu-item" href="#clubs">Клубы</a></li>
+            <li class="scroll"><a class="menu-item" href="#services">Услуги</a></li>
+            <li class="scroll"><a class="menu-item" href="#cards">Клубные карты</a></li>
+            <li class="scroll"><a class="menu-item" href="#table">Расписание</a></li>
+            <li class="scroll"><a class="menu-item" href="#gallery">Галерея</a></li>
+            <li class="scroll"><a class="menu-item" href="#footer">Контакты</a></li>
         </ul>
     </nav>
     <div class="head-slider">
@@ -325,20 +325,14 @@
     <div class="gallery-bg">
         <div class="wrapper">
             <div class="gallery-slider">
-                <div class="slide">
-                    <img src="images/gallery/photo1.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="images/gallery/photo2.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="images/gallery/photo3.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="images/gallery/photo4.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="images/gallery/photo5.jpg" alt="">
+                <div class="slide slide-item slide-item-active"><img src="images/gallery/photo1.jpg" alt=""></div>
+                <div class="slide slide-item"><img src="images/gallery/photo2.jpg" alt=""></div>
+                <div class="slide slide-item"><img src="images/gallery/photo3.jpg" alt=""></div>
+                <div class="slide slide-item"><img src="images/gallery/photo4.jpg" alt=""></div>
+                <div class="slide slide-item"><img src="images/gallery/photo5.jpg" alt=""></div>
+                <a href="#" class="gallery-btn prev" id="arrow-left"></a>
+                <a href="#" class="gallery-btn next" id="arrow-right"></a>
+                <div class="gallery-dots">
                 </div>
             </div>
         </div>
@@ -347,58 +341,62 @@
 <section id="services">
     <div class="wrapper">
         <h2>услуги наших клубов</h2>
-        <div class="services-slider">
-            <div class="slide">
+        <div id="carousel" class="carousel">
+        <div class="services-slider" id="services-slider">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/akva.jpg" alt="Аква территория">
                 <h6>Аква территория</h6>
                 <p>Плавание полезно для людей абсолютно любой возрастной категории. Бассейн 5 на 6 метров.</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/vesy.jpg" alt="Зона свободных весов">
                 <h6>Зона свободных весов</h6>
                 <p>Здесь есть всё необходимое, чтобы достичь максимальных результатов</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/TRX.jpg" alt="Зона TRX">
                 <h6>Зона TRX</h6>
                 <p>Укрепление суставов и связок, увеличение мышечной массы, выносливости и гибкости</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/kardio.jpg" alt="Кардиозона">
                 <h6>Кардиозона</h6>
                 <p>Эффективное снижение веса и улучшение работы сердечно-сосудистой системы</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/yoga.jpg" alt="Йога">
                 <h6>Йога</h6>
                 <p>Йога - идеальны не только физическая форма, но и эмоциональное состояние</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/akva.jpg" alt="Аква территория">
                 <h6>Аква территория</h6>
                 <p>Плавание полезно для людей абсолютно любой возрастной категории. Бассейн 5 на 6 метров.</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/vesy.jpg" alt="Зона свободных весов">
                 <h6>Зона свободных весов</h6>
                 <p>Здесь есть всё необходимое, чтобы достичь максимальных результатов</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/TRX.jpg" alt="Зона TRX">
                 <h6>Зона TRX</h6>
                 <p>Укрепление суставов и связок, увеличение мышечной массы, выносливости и гибкости</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/kardio.jpg" alt="Кардиозона">
                 <h6>Кардиозона</h6>
                 <p>Эффективное снижение веса и улучшение работы сердечно-сосудистой системы</p>
             </div>
-            <div class="slide">
+            <div class="slide carousel-item">
                 <img src="images/services-slider/yoga.jpg" alt="Йога">
                 <h6>Йога</h6>
                 <p>Йога - идеальны не только физическая форма, но и эмоциональное состояние</p>
             </div>
         </div>
+    </div>
+    <a href="#" class="gallery-btn prev prev-carousel"></a>
+            <a href="#" class="gallery-btn next next-carousel"></a>
     </div>
 </section>
 <section id="banner">
@@ -570,5 +568,6 @@
     </div>
 </div>
 
+<script src="dist/main.js"></script>
 </body>
 </html>
