@@ -2273,7 +2273,7 @@ p.personal-data input[type=checkbox]:checked+label:before {
 .gallery-btn {
     position: absolute;
     cursor: pointer;
-    top: 50%;
+    top: 46%;
     z-index: 5;
     width: 40px;
     height: 40px;
@@ -2305,7 +2305,7 @@ p.personal-data input[type=checkbox]:checked+label:before {
 
 .gallery-dots {
     position: absolute;
-    bottom: 45px;
+    bottom: 30px;
     width: 85%;
     margin: 20px auto 0;
     display: -webkit-box;
