@@ -52,22 +52,12 @@ const sendForm = () => {
     document.addEventListener('submit', (event) => {
         let target = event.target;
         event.preventDefault();
-            if (target.contains(checkbox[3]) && !checkbox[3].hasAttribute('checked')) {
-                alert('Подтвердите согласие на обработку персональных данных');
-                return false;
-            }
-            if (target.contains(checkbox[2]) && !checkbox[2].hasAttribute('checked')) {
-                alert('Подтвердите согласие на обработку персональных данных');
-                return false;
-            }
-            if (target.contains(checkbox[1]) && !checkbox[1].hasAttribute('checked')) {
-                alert('Подтвердите согласие на обработку персональных данных');
-                return false;
-            }
-            if (target.contains(checkbox[0]) && !checkbox[0].hasAttribute('checked')) {
-                alert('Подтвердите согласие на обработку персональных данных');
-                return false;
-            }
+        checkbox.forEach(element => {
+            if (target.contains(element) && !element.hasAttribute('checked')) {
+                event.preventDefault();
+                return alert('Подтвердите согласие на обработку персональных данных');  
+            } return false;
+        });
         thanks.style.display = 'flex';
         callbackForm.style.display = 'none';
         freeVisitForm.style.display = 'none';
