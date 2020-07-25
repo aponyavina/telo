@@ -5,13 +5,13 @@ const sendForm = () => {
         loadMessage = 'Загрузка...',
         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
-    const input = document.querySelectorAll('input');
-    const thanks = document.getElementById('thanks');
-    const thanksText = document.querySelector('.thanks-text');
-    const callbackForm = document.getElementById('callback_form');
-    const freeVisitForm = document.getElementById('free_visit_form');
-    const checkbox = document.querySelectorAll('.checkbox');
-    const priceTotal = document.getElementById('price-total');
+    const input = document.querySelectorAll('input'),
+        thanks = document.getElementById('thanks'),
+        thanksText = document.querySelector('.thanks-text'),
+        callbackForm = document.getElementById('callback_form'),
+        freeVisitForm = document.getElementById('free_visit_form'),
+        checkbox = document.querySelectorAll('.checkbox'),
+        priceTotal = document.getElementById('price-total');
 
     document.addEventListener('input', (event) => {
         let target = event.target;
@@ -63,10 +63,8 @@ const sendForm = () => {
                     } else {
                         target.querySelector('input[type="checkbox"]+label').style.color = 'white';
                     }
-                    
                 }
             }
-
         }
         event.preventDefault();
         thanks.style.display = 'flex';
