@@ -11,9 +11,7 @@ const sendForm = () => {
     const callbackForm = document.getElementById('callback_form');
     const freeVisitForm = document.getElementById('free_visit_form');
     const checkbox = document.querySelectorAll('.checkbox');
-
-
-    
+    const priceTotal = document.getElementById('price-total');
 
     document.addEventListener('input', (event) => {
         let target = event.target;
@@ -43,39 +41,32 @@ const sendForm = () => {
                 let bool = false;
                 checkbox[i].addEventListener('click', () => {
                     if (!bool) {
-                        checkbox[i].checked=true;
+                        checkbox[i].checked = true;
                         bool = true;
                     } else {
-                        checkbox[i].checked=false;
+                        checkbox[i].checked = false;
                         bool = false;
                     }
                 });
             }
         }
-    
+
         for (let item of checkbox) {
             if (target.contains(item)) {
                 if (target.contains(item) && item.checked === false) {
                     target.querySelector('input[type="checkbox"]+label').style.color = 'red';
                     return false;
                 } else {
-                     target.querySelector('input[type="checkbox"]+label').style.color = 'white';
+                    if (target.getAttribute('id') === 'card_order') {
+                        target.querySelector('input[type="checkbox"]+label').style.color = '#94939a';
+                        priceTotal.textContent = '1999';
+                    } else {
+                        target.querySelector('input[type="checkbox"]+label').style.color = 'white';
+                    }
+                    
                 }
             }
-            
-        }
-        if (target.getAttribute('id') === 'footer_form') {
-            if (target.querySelectorAll('input[type="radio"]')[0].checked === false &&
-            target.querySelectorAll('input[type="radio"]')[1].checked === false) {
-                target.querySelectorAll('input[type="radio"]+label').forEach(elem => {
-                    elem.style.color = 'red';
-                });
-                return false;
-            } else {
-                target.querySelectorAll('input[type="radio"]+label').forEach(elem => {
-                    elem.style.color = 'white';
-                });
-            }
+
         }
         event.preventDefault();
         thanks.style.display = 'flex';
@@ -107,12 +98,7 @@ const sendForm = () => {
         for (let i = 0; i < input.length; i++) {
             input[i].value = '';
         }
-        document.querySelectorAll('input[type="checkbox"]').forEach(elem => {
-            elem.checked = false;
-        });
-        document.querySelectorAll('input[type="radio"]').forEach(elem => {
-            elem.checked = false;
-        });
+        target.reset();
     });
     const postData = (formData) => {
         return fetch('./server.php', {
