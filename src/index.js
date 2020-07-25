@@ -17,6 +17,7 @@ import calc from './modules/calc';
 import gallery from './modules/gallery';
 import carousel from './modules/carousel';
 import mainSlider from './modules/mainSlider';
+import sendForm from './modules/sendForm';
 
 //club-select
 clubSelect();
@@ -38,4 +39,7 @@ carousel();
 
 //mainSlider
 mainSlider();
+
+//sendForm
+sendForm();
 

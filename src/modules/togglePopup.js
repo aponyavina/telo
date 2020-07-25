@@ -5,11 +5,12 @@ const togglePopup = () => {
         popupMenu = document.querySelector('.popup-menu'),
         fixedGift = document.querySelector('.fixed-gift'),
         popupGift = document.getElementById('gift'),
+        popupThanks = document.getElementById('thanks'),
         popupClose = (item) => {
             item.addEventListener('click', (e) => {
                 let target = e.target;
                 if (target.classList.contains('close-icon') || target.classList.contains('close-btn') ||
-                target.classList.contains('menu-item') ) {
+                target.classList.contains('menu-item')) {
                     item.style.display = 'none';
                 } else if (target.classList.contains('hidden-large') ||
                 target.classList.contains('scroll')) {
@@ -30,7 +31,7 @@ const togglePopup = () => {
             popupVisitForm.style.display = 'flex';
             popupClose(popupVisitForm);
         }
-        if (target.classList.contains('callback-btn')) {
+        if (target.classList.contains('header-callback-btn')) {
             popupCallbackForm.style.display = 'flex';
             popupClose(popupCallbackForm);
         }
@@ -44,6 +45,8 @@ const togglePopup = () => {
             popupClose(popupMenu);
         }
     });
+
+    popupClose(popupThanks);
 };
 
 export default togglePopup;
