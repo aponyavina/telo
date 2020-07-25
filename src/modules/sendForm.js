@@ -12,7 +12,6 @@ const sendForm = () => {
     const freeVisitForm = document.getElementById('free_visit_form');
     const checkbox = document.querySelectorAll('.checkbox');
 
-
     for (let i = 0; i < checkbox.length; i++) {
         if (checkbox[i].getAttribute('class') === 'checkbox') {
             let bool = false;
@@ -44,7 +43,6 @@ const sendForm = () => {
         }
     });
 
-
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 20px;';
     statusMessage.style.cssText = 'color: #fff;';
@@ -52,12 +50,14 @@ const sendForm = () => {
     document.addEventListener('submit', (event) => {
         let target = event.target;
         event.preventDefault();
-        checkbox.forEach(element => {
-            if (target.contains(element) && !element.hasAttribute('checked')) {
-                event.preventDefault();
-                return alert('Подтвердите согласие на обработку персональных данных');  
-            } return false;
-        });
+        for (let item of checkbox) {
+            if (target.contains(item) && !item.hasAttribute('checked')) {
+                alert('Подтвердите согласие на обработку персональных данных');
+                return false;
+            }
+        }
+
+        event.preventDefault();
         thanks.style.display = 'flex';
         callbackForm.style.display = 'none';
         freeVisitForm.style.display = 'none';
@@ -86,6 +86,9 @@ const sendForm = () => {
             });
         for (let i = 0; i < input.length; i++) {
             input[i].value = '';
+        }
+        for (let i = 0; i < checkbox.length; i++) {
+            checkbox[i].setAttribute('checked', false);
         }
     });
     const postData = (formData) => {
