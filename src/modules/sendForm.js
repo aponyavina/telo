@@ -10,19 +10,18 @@ const sendForm = () => {
     const thanksText = document.querySelector('.thanks-text');
     const callbackForm = document.getElementById('callback_form');
     const freeVisitForm = document.getElementById('free_visit_form');
+    const checkbox = document.querySelectorAll('.checkbox');
 
 
-    for (let i = 0; i < input.length; i++) {
-        if (input[i].getAttribute('class') === 'checkbox') {
+    for (let i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].getAttribute('class') === 'checkbox') {
             let bool = false;
-            input[i].addEventListener('click', () => {
+            checkbox[i].addEventListener('click', () => {
                 if (!bool) {
-                    input[i].setAttribute('checked', '');
-                    console.log(input[i]);
+                    checkbox[i].setAttribute('checked', '');
                     bool = true;
                 } else {
-                    input[i].removeAttribute('checked');
-                    console.log(input[i]);
+                    checkbox[i].removeAttribute('checked');
                     bool = false;
                 }
             });
@@ -45,6 +44,7 @@ const sendForm = () => {
         }
     });
 
+
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 20px;';
     statusMessage.style.cssText = 'color: #fff;';
@@ -52,13 +52,22 @@ const sendForm = () => {
     document.addEventListener('submit', (event) => {
         let target = event.target;
         event.preventDefault();
-        // for (let i = 0; i < input.length; i++) {
-        //     if (input[i].getAttribute('class') === 'checkbox' && !input[i].hasAttribute('checked')) {
-        //         alert('Подтвердите согласие на обработку персональных данных');
-        //         return false;
-        //     }
-        // }
-        // event.preventDefault();
+            if (target.contains(checkbox[3]) && !checkbox[3].hasAttribute('checked')) {
+                alert('Подтвердите согласие на обработку персональных данных');
+                return false;
+            }
+            if (target.contains(checkbox[2]) && !checkbox[2].hasAttribute('checked')) {
+                alert('Подтвердите согласие на обработку персональных данных');
+                return false;
+            }
+            if (target.contains(checkbox[1]) && !checkbox[1].hasAttribute('checked')) {
+                alert('Подтвердите согласие на обработку персональных данных');
+                return false;
+            }
+            if (target.contains(checkbox[0]) && !checkbox[0].hasAttribute('checked')) {
+                alert('Подтвердите согласие на обработку персональных данных');
+                return false;
+            }
         thanks.style.display = 'flex';
         callbackForm.style.display = 'none';
         freeVisitForm.style.display = 'none';
