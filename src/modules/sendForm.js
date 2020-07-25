@@ -1,3 +1,4 @@
+import calc from './calc';
 const sendForm = () => {
     'use strict';
 
@@ -5,13 +6,15 @@ const sendForm = () => {
         loadMessage = 'Загрузка...',
         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
-    const input = document.querySelectorAll('input'),
-        thanks = document.getElementById('thanks'),
-        thanksText = document.querySelector('.thanks-text'),
-        callbackForm = document.getElementById('callback_form'),
-        freeVisitForm = document.getElementById('free_visit_form'),
-        checkbox = document.querySelectorAll('.checkbox'),
-        priceTotal = document.getElementById('price-total');
+    const input = document.querySelectorAll('input');
+    const thanks = document.getElementById('thanks');
+    const thanksText = document.querySelector('.thanks-text');
+    const callbackForm = document.getElementById('callback_form');
+    const freeVisitForm = document.getElementById('free_visit_form');
+    const checkbox = document.querySelectorAll('.checkbox');
+
+
+    
 
     document.addEventListener('input', (event) => {
         let target = event.target;
@@ -41,29 +44,38 @@ const sendForm = () => {
                 let bool = false;
                 checkbox[i].addEventListener('click', () => {
                     if (!bool) {
-                        checkbox[i].checked = true;
+                        checkbox[i].checked=true;
                         bool = true;
                     } else {
-                        checkbox[i].checked = false;
+                        checkbox[i].checked=false;
                         bool = false;
                     }
                 });
             }
         }
-
+    
         for (let item of checkbox) {
             if (target.contains(item)) {
                 if (target.contains(item) && item.checked === false) {
                     target.querySelector('input[type="checkbox"]+label').style.color = 'red';
                     return false;
                 } else {
-                    if (target.getAttribute('id') === 'card_order') {
-                        target.querySelector('input[type="checkbox"]+label').style.color = '#94939a';
-                        priceTotal.textContent = '1999';
-                    } else {
-                        target.querySelector('input[type="checkbox"]+label').style.color = 'white';
-                    }
+                     target.querySelector('input[type="checkbox"]+label').style.color = 'white';
                 }
+            }
+            
+        }
+        if (target.getAttribute('id') === 'footer_form') {
+            if (target.querySelectorAll('input[type="radio"]')[0].checked === false &&
+            target.querySelectorAll('input[type="radio"]')[1].checked === false) {
+                target.querySelectorAll('input[type="radio"]+label').forEach(elem => {
+                    elem.style.color = 'red';
+                });
+                return false;
+            } else {
+                target.querySelectorAll('input[type="radio"]+label').forEach(elem => {
+                    elem.style.color = 'white';
+                });
             }
         }
         event.preventDefault();
@@ -81,6 +93,12 @@ const sendForm = () => {
                 if (response.status !== 200) {
                     throw new Error('status network not 200');
                 }
+                event.target.reset();
+                if(event.target.id === 'card_order') {
+                    const consent = event.target.querySelector('label[for="card_check"]');
+                    consent.style.color = `#94939a`;
+                    calc();
+                }
                 thanksText.textContent = successMessage;
                 setTimeout(() => {
                     thanks.style.display = 'none';
@@ -93,10 +111,6 @@ const sendForm = () => {
                 }, 2000);
                 console.error(error);
             });
-        for (let i = 0; i < input.length; i++) {
-            input[i].value = '';
-        }
-        target.reset();
     });
     const postData = (formData) => {
         return fetch('./server.php', {
