@@ -11,6 +11,24 @@ const sendForm = () => {
     const callbackForm = document.getElementById('callback_form');
     const freeVisitForm = document.getElementById('free_visit_form');
 
+
+    for (let i = 0; i < input.length; i++) {
+        if (input[i].getAttribute('class') === 'checkbox') {
+            let bool = false;
+            input[i].addEventListener('click', () => {
+                if (!bool) {
+                    input[i].setAttribute('checked', '');
+                    console.log(input[i]);
+                    bool = true;
+                } else {
+                    input[i].removeAttribute('checked');
+                    console.log(input[i]);
+                    bool = false;
+                }
+            });
+        }
+    }
+
     document.addEventListener('input', (event) => {
         let target = event.target;
         if (target.getAttribute('name') === 'phone') {
@@ -34,11 +52,16 @@ const sendForm = () => {
     document.addEventListener('submit', (event) => {
         let target = event.target;
         event.preventDefault();
+        // for (let i = 0; i < input.length; i++) {
+        //     if (input[i].getAttribute('class') === 'checkbox' && !input[i].hasAttribute('checked')) {
+        //         alert('Подтвердите согласие на обработку персональных данных');
+        //         return false;
+        //     }
+        // }
+        // event.preventDefault();
         thanks.style.display = 'flex';
         callbackForm.style.display = 'none';
         freeVisitForm.style.display = 'none';
-        // thanks.append(statusMessage);
-        // statusMessage.textContent = loadMessage;
         thanksText.textContent = loadMessage;
         const formData = new FormData(target);
         let body = {};
