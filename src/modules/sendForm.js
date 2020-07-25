@@ -87,9 +87,12 @@ const sendForm = () => {
         for (let i = 0; i < input.length; i++) {
             input[i].value = '';
         }
-        for (let i = 0; i < checkbox.length; i++) {
-            checkbox[i].setAttribute('checked', false);
-        }
+        document.querySelectorAll('input[type="checkbox"]').forEach(elem => {
+            elem.checked = false;
+        });
+        document.querySelectorAll('input[type="radio"]').forEach(elem => {
+            elem.checked = false;
+        });
     });
     const postData = (formData) => {
         return fetch('./server.php', {
