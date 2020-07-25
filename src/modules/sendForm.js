@@ -12,20 +12,8 @@ const sendForm = () => {
     const freeVisitForm = document.getElementById('free_visit_form');
     const checkbox = document.querySelectorAll('.checkbox');
 
-    for (let i = 0; i < checkbox.length; i++) {
-        if (checkbox[i].getAttribute('class') === 'checkbox') {
-            let bool = false;
-            checkbox[i].addEventListener('click', () => {
-                if (!bool) {
-                    checkbox[i].setAttribute('checked', '');
-                    bool = true;
-                } else {
-                    checkbox[i].removeAttribute('checked');
-                    bool = false;
-                }
-            });
-        }
-    }
+
+    
 
     document.addEventListener('input', (event) => {
         let target = event.target;
@@ -50,13 +38,45 @@ const sendForm = () => {
     document.addEventListener('submit', (event) => {
         let target = event.target;
         event.preventDefault();
-        for (let item of checkbox) {
-            if (target.contains(item) && !item.hasAttribute('checked')) {
-                alert('Подтвердите согласие на обработку персональных данных');
-                return false;
+        for (let i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].getAttribute('class') === 'checkbox') {
+                let bool = false;
+                checkbox[i].addEventListener('click', () => {
+                    if (!bool) {
+                        checkbox[i].checked=true;
+                        bool = true;
+                    } else {
+                        checkbox[i].checked=false;
+                        bool = false;
+                    }
+                });
             }
         }
-
+    
+        for (let item of checkbox) {
+            if (target.contains(item)) {
+                if (target.contains(item) && item.checked === false) {
+                    target.querySelector('input[type="checkbox"]+label').style.color = 'red';
+                    return false;
+                } else {
+                     target.querySelector('input[type="checkbox"]+label').style.color = 'white';
+                }
+            }
+            
+        }
+        if (target.getAttribute('id') === 'footer_form') {
+            if (target.querySelectorAll('input[type="radio"]')[0].checked === false &&
+            target.querySelectorAll('input[type="radio"]')[1].checked === false) {
+                target.querySelectorAll('input[type="radio"]+label').forEach(elem => {
+                    elem.style.color = 'red';
+                });
+                return false;
+            } else {
+                target.querySelectorAll('input[type="radio"]+label').forEach(elem => {
+                    elem.style.color = 'white';
+                });
+            }
+        }
         event.preventDefault();
         thanks.style.display = 'flex';
         callbackForm.style.display = 'none';
