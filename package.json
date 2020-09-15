@@ -35,5 +35,8 @@
     "formdata-polyfill": "^3.0.20",
     "jshint": "^2.11.1",
     "nodelist-foreach-polyfill": "^1.2.0"
+  },
+  "publishConfig": { 
+    "registry": "https://npm.pkg.github.com/" 
   }
 }

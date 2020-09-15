@@ -835,7 +835,7 @@ html#schelkovo .advantages .wrapper {
     z-index: 5555;
     display: inline;
     top: 15px;
-    right: 20px;
+    /* right: 20px; */
     cursor: pointer
 }
 
@@ -2079,7 +2079,7 @@ footer .footer-bottom .right .socials .social-icon:hover a {
     display: none;
     position: fixed;
     bottom: 10px;
-    right: 10px;
+    /* right: 10px; */
     z-index: 200;
     font-size: 28px;
     color: #1e1c34;
@@ -2358,7 +2358,6 @@ p.personal-data input[type=checkbox]:checked+label:before {
     /* -webkit-transform: scale(1.2);
     transform: scale(1.2); */
 }
-
 
 
 
