@@ -283,7 +283,8 @@ input[type=button] {
 html#mozaika .head-slider,
 html#schelkovo .head-slider {
     max-height: 400px;
-    background: url(../images/head-slider-bg2.png) no-repeat center top
+    background: url(../images/head-slider-bg2.png) no-repeat center top;
+    background-size: 100%;
 }
 
 html#mozaika .head-slider .wrapper,
@@ -868,7 +869,7 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    max-width: 1920px
+    /* max-width: 1920px */
 }
 
 body {
@@ -925,7 +926,7 @@ h2:after {
 }
 
 section {
-    padding-top: 56px
+    padding-top: 76px
 }
 
 a,
@@ -1256,7 +1257,8 @@ nav.popup-menu .close-menu-btn img {
 .head-slider {
     height: 541px;
     position: relative;
-    background: url(../images/head-slider-bg.png) no-repeat center top
+    background: url(../images/head-slider-bg.png) no-repeat center top;
+    background-size: 100%
 }
 
 .head-slider .wrapper {
@@ -1502,6 +1504,7 @@ nav.popup-menu .close-menu-btn img {
 
 #banner {
     background: url(../images/banner-bg.png) no-repeat center top;
+    background-size: 100%;
     height: 262px;
     color: #fff;
     text-align: center
@@ -1627,7 +1630,8 @@ nav.popup-menu .close-menu-btn img {
 }
 
 #gallery .gallery-bg {
-    background: url(../images/gallery-bg.png) left center no-repeat
+    background: url(../images/gallery-bg.png) left center no-repeat;
+    background-size: 100%;
 }
 
 #gallery .gallery-slider {
@@ -2357,6 +2361,13 @@ p.personal-data input[type=checkbox]:checked+label:before {
     background-color: #ffd118;
     /* -webkit-transform: scale(1.2);
     transform: scale(1.2); */
+}
+
+@media only screen and (max-width: 1920px) {
+    .head-slider, #banner, #gallery .gallery-bg, html#mozaika .head-slider,
+    html#schelkovo .head-slider {
+        background-size: auto
+    }
 }
 
 
